@@ -215,9 +215,17 @@
         <section id="deals" class="py-6 md:py-10 bg-gray-50 text-center">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-950">Current Deals & Promotions</h2>
-                <!-- Image for the deals with a smaller max-width -->
-                <!-- Updated Alt Text, class changed from max-w-2xl to max-w-xl -->
-                <img src="https://i.ibb.co/xS9BtsXy/4-deals.jpg" alt="Promotional graphic detailing current deals on t-shirt orders, embroidery, car magnets, and business cards" class="w-full h-auto max-w-xl mx-auto rounded-xl shadow-lg border-4 border-white" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/E5E7EB/4B5563?text=Deals+Image+Not+Found';">
+                <!-- New: Horizontal flexbox container for the four deal images. The width classes have been updated to make the images smaller. -->
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                    <!-- Updated image source to the first deal picture -->
+                    <img src="https://i.ibb.co/9k0XVwPK/graphix-gildan-deal.jpg" alt="A promotional deal featuring Gildan shirts" class="w-full md:w-1/3 lg:w-1/4 h-auto rounded-xl shadow-lg border-4 border-white">
+                    <!-- Updated image source to the second deal picture -->
+                    <img src="https://i.ibb.co/zWQj6HQj/graphix-dry-fit-deal-1.jpg" alt="A promotional deal on dry-fit shirts" class="w-full md:w-1/3 lg:w-1/4 h-auto rounded-xl shadow-lg border-4 border-white">
+                    <!-- Updated image source to the third deal picture -->
+                    <img src="https://i.ibb.co/ZzB6dCtM/12-hat-deal.jpg" alt="A promotional deal for a dozen custom embroidered hats" class="w-full md:w-1/3 lg:w-1/4 h-auto rounded-xl shadow-lg border-4 border-white">
+                    <!-- Placeholder 4 -->
+                    <img src="https://i.ibb.co/1fG1PFYR/6-polos.png" alt="A promotional deal on custom embroidered polo shirts" class="w-full md:w-1/3 lg:w-1/4 h-auto rounded-xl shadow-lg border-4 border-white">
+                </div>
             </div>
         </section>
         
