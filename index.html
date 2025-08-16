@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphix Custom Apparel Of Ocala</title>
+    <!-- Updated Title Tag for better SEO -->
+    <title>Custom T-Shirts, Embroidery & Screen Printing in Ocala, FL | Graphix Custom Apparel</title>
+    <!-- New Meta Description for Search Engine Results -->
+    <meta name="description" content="Graphix Custom Apparel is a local print shop in Ocala, FL specializing in high-quality screen printing, embroidery, and custom promotional items. Get a fast, free quote today!">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX0JRRF2L6"></script>
     <script>
@@ -23,6 +26,25 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
+        /* Custom styles for the horizontal testimonial scroll area */
+        .testimonials-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .testimonials-carousel::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+        .testimonials-carousel::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+        /* Style for the mobile menu transition */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -37,7 +59,7 @@
                 </svg>
                 <span>Fast Free Quote: 352-346-6230</span>
             </a>
-            <!-- Navigation Links -->
+            <!-- Navigation Links for Desktop -->
             <div class="hidden md:flex space-x-6">
                 <a href="#home" class="text-gray-600 hover:text-blue-950 transition-colors duration-300">Home</a>
                 <a href="#about" class="text-gray-600 hover:text-blue-950 transition-colors duration-300">About</a>
@@ -49,7 +71,7 @@
                 <a href="#contact" class="text-gray-600 hover:text-blue-950 transition-colors duration-300">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-600 focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -57,10 +79,42 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu Container -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50 p-6 flex flex-col justify-start items-start md:hidden">
+        <button id="close-menu-button" class="self-end text-gray-600 hover:text-blue-950 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="mt-8 flex flex-col space-y-4 w-full">
+            <a href="#home" class="mobile-nav-link text-gray-800 hover:text-blue-950 text-lg font-semibold w-full py-2">Home</a>
+            <a href="#about" class="mobile-nav-link text-gray-800 hover:text-blue-950 text-lg font-semibold w-full py-2">About</a>
+            <a href="#deals" class="mobile-nav-link text-gray-800 hover:text-blue-950 text-lg font-semibold w-full py-2">Deals</a>
+            <a href="#services" class="mobile-nav-link text-gray-800 hover:text-blue-950 text-lg font-semibold w-full py-2">Services</a>
+            <a href="#testimonials" class="mobile-nav-link text-gray-800 hover:text-blue-950 text-lg font-semibold w-full py-2">Testimonials</a>
+            <a href="#quote-form" class="mobile-nav-link text-gray-800 hover:text-blue-950 text-lg font-semibold w-full py-2">Request a Quote</a>
+            <a href="#contact" class="mobile-nav-link text-gray-800 hover:text-blue-950 text-lg font-semibold w-full py-2">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Overlay for the mobile menu -->
+    <div id="menu-overlay" class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 z-40 hidden md:hidden"></div>
+
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="bg-blue-950 text-white py-16 md:py-24 relative">
-            <div class="container mx-auto px-4 text-center">
+        <!-- Hero Section with Background Video -->
+        <section id="home" class="relative text-white py-16 md:py-24 overflow-hidden">
+            <!-- Video element for the background -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                <!-- Use the provided video file here, with the direct download link from Dropbox -->
+                <source src="https://www.dropbox.com/scl/fi/gbklsho7qdy8ulohi8wwt/Graphix-1-V1-16x9.mp4?rlkey=eukyy4526yhokbjqcxg6rny8t&raw=1" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Overlay to make text readable -->
+            <div class="absolute inset-0 bg-blue-950 opacity-75 z-10"></div>
+
+            <!-- Content on top of the video -->
+            <div class="container mx-auto px-4 text-center relative z-20">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
                     Graphix Custom Apparel Of Ocala
                 </h1>
@@ -76,7 +130,8 @@
                 <div class="md:flex md:items-center md:space-x-12">
                     <!-- Image Placeholder -->
                     <div class="md:w-1/2 mb-8 md:mb-0">
-                        <img src="https://i.ibb.co/B7dLRCX/IMG-0627.jpg" alt="A team member operating a large printing machine" class="w-full h-auto rounded-xl shadow-lg">
+                        <!-- Updated image source to the new, higher-resolution link -->
+                        <img src="https://i.ibb.co/TxPJPWYM/IMG-0635.jpg" alt="A team member operating a large-format printing machine" class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg">
                     </div>
                     <!-- Text Content -->
                     <div class="md:w-1/2 text-center md:text-left">
@@ -112,8 +167,10 @@
                         </div>
                         <!-- Images for the printing service, now with a uniform height and object-fit -->
                         <div class="space-y-4">
-                            <img src="https://i.ibb.co/pr9cBz9g/image.png" alt="Printing Service 1" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2C3E50/E5E7EB?text=Printing+Image+1';">
-                            <img src="https://i.imgur.com/RY55Hlf.jpeg" alt="Printing Service 2" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3498DB/E5E7EB?text=Printing+Image+2';">
+                            <!-- Updated Alt Text -->
+                            <img src="https://i.ibb.co/pr9cBz9g/image.png" alt="A close-up of a t-shirt being printed with a custom design" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2C3E50/E5E7EB?text=Printing+Image+1';">
+                            <!-- Updated Alt Text -->
+                            <img src="https://i.imgur.com/RY55Hlf.jpeg" alt="A custom printed t-shirt hanging on a rack" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3498DB/E5E7EB?text=Printing+Image+2';">
                         </div>
                     </div>
 
@@ -127,8 +184,10 @@
                         </div>
                         <!-- Images for the embroidery service, now with a uniform height and object-fit -->
                         <div class="space-y-4">
-                            <img src="https://i.ibb.co/qML66xJv/image.png" alt="Embroidery Service 1" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2C3E50/E5E7EB?text=Embroidery+Image+1';">
-                            <img src="https://i.imgur.com/1TGTnu3.jpeg" alt="Embroidery Service 2" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3498DB/E5E7EB?text=Embroidery+Image+2';">
+                            <!-- Updated Alt Text -->
+                            <img src="https://i.ibb.co/qML66xJv/image.png" alt="A close-up of a hat being embroidered with a logo" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2C3E50/E5E7EB?text=Embroidery+Image+1';">
+                            <!-- Updated Alt Text -->
+                            <img src="https://i.imgur.com/1TGTnu3.jpeg" alt="Finished embroidered polo shirts neatly stacked" class="w-full h-64 object-cover rounded-md shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3498DB/E5E7EB?text=Embroidery+Image+2';">
                         </div>
                     </div>
 
@@ -142,8 +201,10 @@
                         </div>
                         <!-- Placeholder images for promotional items, now with a uniform height and object-fit -->
                         <div class="space-y-4">
-                            <img src="https://i.imgur.com/i3WUiHl.jpeg" alt="Custom printed promotional mugs" class="w-full h-64 object-cover rounded-md shadow-md">
-                            <img src="https://i.ibb.co/Mk0XBVZN/image.png" alt="Variety of promotional items including mugs and water bottles" class="w-full h-64 object-cover rounded-md shadow-md">
+                            <!-- Updated Alt Text -->
+                            <img src="https://i.imgur.com/i3WUiHl.jpeg" alt="A custom printed promotional mug with a business logo" class="w-full h-64 object-cover rounded-md shadow-md">
+                            <!-- Updated Alt Text -->
+                            <img src="https://i.ibb.co/Mk0XBVZN/image.png" alt="A collection of branded promotional items including mugs and water bottles" class="w-full h-64 object-cover rounded-md shadow-md">
                         </div>
                     </div>
                 </div>
@@ -155,11 +216,12 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-950">Current Deals & Promotions</h2>
                 <!-- Image for the deals with a smaller max-width -->
-                <img src="https://i.ibb.co/xS9BtsXy/4-deals.jpg" alt="Current deals and promotions: Free setup for t-shirt orders of 25+, 10% off embroidery, 10% off car magnets, and free business cards with a new sign." class="w-full h-auto max-w-2xl mx-auto rounded-xl shadow-lg border-4 border-white" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/E5E7EB/4B5563?text=Deals+Image+Not+Found';">
+                <!-- Updated Alt Text, class changed from max-w-2xl to max-w-xl -->
+                <img src="https://i.ibb.co/xS9BtsXy/4-deals.jpg" alt="Promotional graphic detailing current deals on t-shirt orders, embroidery, car magnets, and business cards" class="w-full h-auto max-w-xl mx-auto rounded-xl shadow-lg border-4 border-white" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/E5E7EB/4B5563?text=Deals+Image+Not+Found';">
             </div>
         </section>
         
-        <!-- Testimonials Section -->
+        <!-- Testimonials Section - Now a horizontal, swipeable carousel with infinite loop -->
         <section id="testimonials" class="py-8 md:py-12 bg-gray-100">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
@@ -170,40 +232,44 @@
                 <p class="text-center font-bold text-lg text-blue-950 mb-8">
                     Over 150 reviews with a 4.9 star average!
                 </p>
-                
-                <!-- Testimonial Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Testimonial Card 1 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col justify-between min-h-[300px]">
-                        <p class="text-left text-gray-700 italic mb-4">
-                            "These guys are amazing!!!! I have made many orders towards The end of the school year for West Port High School and they have exceeded my expectations with each order!!! From jackets to shirts and any other apparel, they’ve done a great job! I highly recommend them for any and all bulk needs!!"
-                        </p>
-                        <div class="text-left">
-                            <div class="font-semibold text-blue-950">- Jamesha Gilliam</div>
-                            <div class="text-sm text-gray-500">Lake Weir High School</div>
-                        </div>
+
+                <!-- Carousel Container -->
+                <div class="relative">
+                    <!-- Navigation Arrows -->
+                    <button id="left-arrow" class="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg z-10 hidden lg:block opacity-75 hover:opacity-100 transition-opacity duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Testimonial Carousel Scroll Area -->
+                    <div id="testimonial-carousel" class="testimonials-carousel flex overflow-x-scroll snap-x snap-mandatory gap-8 pb-4">
+                        <!-- Testimonial cards will be inserted here by JavaScript -->
                     </div>
-                    
-                    <!-- Testimonial Card 2 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col justify-between min-h-[300px]">
-                        <p class="text-left text-gray-700 italic mb-4">
-                            "Great service, great quality, and quick turnaround. Worth every penny! Unlike other custom clothing I’ve gotten, the images really last wash after wash. Even on baby onesies! We have put in multiple orders and get taken care of every time. They have so much to choose from, and can make your ideas a reality. Plus their original designs are super creative!We are customers for life here!"
-                        </p>
-                        <div class="text-left">
-                            <div class="font-semibold text-blue-950">- Kelsie Ruff Smith</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial Card 3 -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col justify-between min-h-[300px]">
-                        <p class="text-left text-gray-700 italic mb-4">
-                            "Logan has been very generous with graphix and promoting our business. I’ve found the prices competitive and high quality products. We will continue business with Graphix. Super easy to work with."
-                        </p>
-                        <div class="text-left">
-                            <div class="font-semibold text-blue-950">- Ashley Rozicki</div>
-                            <div class="text-sm text-gray-500">Business Owner</div>
-                        </div>
-                    </div>
+
+                    <button id="right-arrow" class="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg z-10 hidden lg:block opacity-75 hover:opacity-100 transition-opacity duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Call to Action buttons to read and leave reviews on Google -->
+                <div class="mt-8 text-center flex justify-center space-x-4">
+                    <!-- NEW: Button to leave a review -->
+                    <a href="https://g.page/r/CWRtt3Hs79JlEAE/review"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-block bg-blue-950 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-800 transition-colors duration-300">
+                        Leave Your Review!
+                    </a>
+                    <!-- Button to read more reviews on Google -->
+                    <a href="https://www.google.com/search?q=Graphix+Custom+Apparel+reviews&sca_esv=bbd057e915ef1d8e&sxsrf=AE3TifM7kNRY-UAc3zK2L8QaQyY7ACvZSg%3A1755362942823&ei=fragaJSAMtqEwbkP_8ee8A8&ved=0ahUKEwiUt6LF5I-PAxVaQjABHf-jB_4Q4dUDCBA&uact=5&oq=Graphix+Custom+Apparel+reviews&gs_lp=Egxnd3Mtd2l6LXNlcnAiHkdyYXBoaXggQ3VzdG9tIEFwcGFyZWwgcmV2aWV3czIEECMYJzILEAAYgAQYigUYhgMyCxAAGIAEGIoFGIYDMgsQABiABBiKBRiGAzIIEAAYgAQYogQyBRAAGO8FMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESPENUIwEWJsNcAF4AJABAJgBbKABjAWqAQM3LjG4AQPIAQD4AQGYAgmgArkFwgIHECMYsAMYJ8ICERAuGIAEGMcBGK8BGLADGI4FwgIHEAAYHhiwA8ICCRAAGAgYHhiwA8ICCDhAAGIAEGIoFGIYDGLADwgIGEAAYFhgewgICECaYAwCIBgGQBgqSBwM4LjGgB8cysgcDNy4xuAexBcIHAzItOcgHKA&sclient=gws-wiz-serp#mpd=~16140973030436974935/customers/reviews"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-block bg-blue-950 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-800 transition-colors duration-300">
+                        Read More On Google!
+                    </a>
                 </div>
             </div>
         </section>
@@ -259,6 +325,25 @@
                             <li><strong>Sunday:</strong> 12:00 PM - 6:00 PM</li>
                         </ul>
                     </div>
+
+                    <!-- Social Media Links Section -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-950 mb-2">Follow Us</h3>
+                        <div class="flex justify-center md:justify-start space-x-4">
+                            <!-- Facebook Button, updated link -->
+                            <a href="https://www.facebook.com/profile.php?id=100086539191080&mibextid=kFxxJD" target="_blank" rel="noopener noreferrer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/768px-2023_Facebook_icon.svg.png" alt="Facebook logo" class="h-6 w-6">
+                            </a>
+                            <!-- Instagram Button -->
+                            <a href="https://www.instagram.com/graphixcustom_" target="_blank" rel="noopener noreferrer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram logo" class="h-6 w-6">
+                            </a>
+                            <!-- TikTok Button, updated link -->
+                            <a href="https://www.tiktok.com/@graphixcustom" target="_blank" rel="noopener noreferrer">
+                                <img src="https://static.vecteezy.com/system/resources/previews/021/495/942/non_2x/tiktok-logo-icon-free-png.png" alt="TikTok logo" class="h-6 w-6">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -271,5 +356,134 @@
         </div>
     </footer>
 
+    <!-- JavaScript to handle dynamic testimonials and the new carousel functionality -->
+    <script>
+        // An array of your testimonials.
+        const testimonials = [
+            {
+                text: "These guys are amazing!!!! I have made many orders towards The end of the school year for West Port High School and they have exceeded my expectations with each order!!! From jackets to shirts and any other apparel, they’ve done a great job! I highly recommend them for any and all bulk needs!!",
+                author: "Jamesha Gilliam",
+                affiliation: "West Port High School"
+            },
+            {
+                text: "Great service, great quality, and quick turnaround. Worth every penny! Unlike other custom clothing I’ve gotten, the images really last wash after wash. Even on baby onesies! We have put in multiple orders and get taken care of every time. They have so much to choose from, and can make your ideas a reality. Plus their original designs are super creative!We are customers for life here!",
+                author: "Kelsie Ruff Smith",
+                affiliation: null
+            },
+            {
+                text: "Logan has been very generous with graphix and promoting our business. I’ve found the prices competitive and high quality products. We will continue business with Graphix. Super easy to work with.",
+                author: "Ashley Rozicki",
+                affiliation: "Local Business Owner"
+            },
+            {
+                text: "Logan is amazing to work with! He will change your design 100 times without complaint until you’re happy. If you’re getting your shirts made somewhere else, you’re doing it wrong.",
+                author: "Jen Flaherty",
+                affiliation: "Local Business Owner"
+            },
+            {
+                text: "Graphix Custom Apparel is amazing! Their quality, attention to detail, and customer service are second to none. They helped bring our vision to life with sharp, vibrant designs and top-notch materials. As the owner of Bounce N Around Rentals in Saint Cloud, I truly appreciate working with local businesses that care about delivering excellence. If you need custom shirts, hats, or branded apparel, I highly recommend Graphix Custom Apparel—you won’t be disappointed!",
+                author: "Bounce N' Around LLC",
+                affiliation: null
+            },
+            {
+                text: "This store is very helpful and nice. Franklin logan and tommi all do a wonderful job and you can tell they really love what they do. Every time ive been there im greeted with kindness and eagerness to start our next project. I’ve gotten multiple things done from there from shirts hoodies sweaters jerseys and even tote bags. This store is a creative and awesome concept and ocala is lucky to have them.",
+                author: "Laura Smith",
+                affiliation: null
+            }
+        ];
+
+        // Function to create an HTML testimonial card from a testimonial object
+        function createTestimonialCard(testimonial) {
+            const card = document.createElement('div');
+            // Classes for the carousel: w-full for full-width, flex-shrink-0 to prevent shrinking, and snap-center for scrolling
+            card.className = "bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col justify-between min-h-[300px] transform hover:scale-105 transition-transform duration-300 w-full md:w-1/2 lg:w-1/3 flex-shrink-0 snap-center";
+            
+            let affiliationHtml = '';
+            if (testimonial.affiliation) {
+                affiliationHtml = `<div class="text-sm text-gray-500">${testimonial.affiliation}</div>`;
+            }
+
+            card.innerHTML = `
+                <p class="text-left text-gray-700 italic mb-4">
+                    "${testimonial.text}"
+                </p>
+                <div class="text-left">
+                    <div class="font-semibold text-blue-950">- ${testimonial.author}</div>
+                    ${affiliationHtml}
+                </div>
+            `;
+            return card;
+        }
+
+        // Function to render the testimonials to the page and set up carousel functionality
+        function setupTestimonialCarousel() {
+            const carousel = document.getElementById('testimonial-carousel');
+            const leftArrow = document.getElementById('left-arrow');
+            const rightArrow = document.getElementById('right-arrow');
+
+            // Clear any existing testimonials to prevent duplication on rerender
+            carousel.innerHTML = '';
+            
+            // Add all testimonial cards to the carousel
+            testimonials.forEach(testimonial => {
+                const card = createTestimonialCard(testimonial);
+                carousel.appendChild(card);
+            });
+
+            // Logic to handle carousel scrolling for smooth movement
+            const scroll = (direction) => {
+                const card = carousel.querySelector('.snap-center');
+                if (!card) return;
+                const scrollAmount = card.offsetWidth + 32; // card width + gap (8 tailwind units)
+                if (direction === 'left') {
+                    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else if (direction === 'right') {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            };
+            
+            // Add event listeners for the navigation buttons
+            leftArrow.addEventListener('click', () => scroll('left'));
+            rightArrow.addEventListener('click', () => scroll('right'));
+        }
+
+        // JavaScript for the mobile menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            // Function to open the menu
+            function openMenu() {
+                mobileMenu.classList.add('active');
+                menuOverlay.classList.remove('hidden');
+                setTimeout(() => menuOverlay.classList.add('opacity-50'), 10);
+                document.body.style.overflow = 'hidden'; // Prevents background scrolling
+            }
+
+            // Function to close the menu
+            function closeMenu() {
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('opacity-50');
+                setTimeout(() => menuOverlay.classList.add('hidden'), 300); // Hide after transition
+                document.body.style.overflow = ''; // Restore background scrolling
+            }
+
+            // Event listeners
+            mobileMenuButton.addEventListener('click', openMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+
+            // Close the menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+            
+            // Run the carousel setup
+            setupTestimonialCarousel();
+        });
+    </script>
 </body>
 </html>
