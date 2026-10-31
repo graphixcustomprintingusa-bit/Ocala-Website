@@ -35,7 +35,7 @@
         "email": "lakeland@graphixcustomapparel.com",
         "image": "https://i.imgur.com/IJX6YDj.png",
         "priceRange": "$$",
-        "address": { "@type": "PostalAddress", "streetAddress": "3800 US Hwy 98 N #582", "addressLocality": "Lakeland", "addressRegion": "FL", "postalCode": "33809", "addressCountry": "US" },
+        "address": { "@type": "PostalAddress", "streetAddress": "3800 US Hwy 98 N, Suite 160", "addressLocality": "Lakeland", "addressRegion": "FL", "postalCode": "33809", "addressCountry": "US" },
         "openingHoursSpecification": [
           { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "11:00", "closes": "20:00" },
           { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "18:00" }
@@ -425,6 +425,7 @@
     .qform .btn:disabled{opacity:.6;cursor:wait;transform:none}
     .qstatus{font-weight:700;font-size:.92rem}
     .qstatus.bad{color:var(--err)}
+    .qdetail{display:block;margin-top:4px;font-weight:500;font-size:.8rem;color:var(--ink-2)}
     .qdone{display:grid;gap:12px;text-align:left}
     .qdone h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(2.4rem,5vw,3.4rem);line-height:.95;text-shadow:3px 3px 0 var(--hl)}
     .qdone .btn{justify-self:start;margin-top:8px}
@@ -501,7 +502,7 @@
       <h2 id="gateTitle">Which shop are you visiting?</h2>
       <p>Pick the shop closest to you. We'll show that shop's phone number and hours, and your quote request goes straight to that shop.</p>
       <div class="gate-opts">
-        <button type="button" class="gate-opt day" data-loc="lakeland"><b>Lakeland</b><span>Lakeland Square Mall</span><small>3800 US Hwy 98 N #582</small><em>Choose Lakeland →</em></button>
+        <button type="button" class="gate-opt day" data-loc="lakeland"><b>Lakeland</b><span>Lakeland Square Mall</span><small>3800 US Hwy 98 N, Suite 160</small><em>Choose Lakeland →</em></button>
         <button type="button" class="gate-opt night" data-loc="ocala"><b>Ocala</b><span>Paddock Mall</span><small>3100 SW College Rd #586</small><em>Choose Ocala →</em></button>
       </div>
       <p class="gate-note">You can switch shops anytime with the switch at the top of the page.</p>
@@ -811,7 +812,7 @@
       lakeland: {
         city: 'Lakeland',
         where: 'Inside Lakeland Square Mall',
-        street: '3800 US Hwy 98 N #582',
+        street: '3800 US Hwy 98 N, Suite 160',
         cityLine: 'Lakeland, FL 33809',
         phone: '(863) 327-9570',
         tel: '+18633279570',
@@ -1063,8 +1064,13 @@
         qForm.hidden = true; document.getElementById('qDone').hidden = false;
         document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
       } catch (err) {
+        console.error('Quote request failed:', err);
         qStatus.className = 'qstatus bad';
         qStatus.textContent = `We couldn't send your request. Check your connection and try again, or call us at ${LOCATIONS[shop.toLowerCase()].phone}.`;
+        const detail = document.createElement('small');
+        detail.className = 'qdetail';
+        detail.textContent = 'Details: ' + (err.message || err);
+        qStatus.appendChild(detail);
       } finally {
         btn.disabled = false;
       }
