@@ -1109,6 +1109,7 @@
     /* ---------- Quote form ----------
        Requests go to the Apps Script in the Lakeland Google Sheet, which saves the artwork,
        adds a row to the Sheet and e-mails the shop the customer picked. */
+    let quoteOffer = '';   // hidden tag for special offers (e.g. the Business Package), sent with the request
     const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbzm9Z85V2ZimjVI5SBfpDi6i7eR7o2fVudszd9XUX5Qi3J-R8ee0l0xGanC5ZtTNXsq/exec';   // Apps Script in the quote Sheet
     const MAX_FILES = 3, MAX_MB = 10;
     const OK_EXT = ['jpg','jpeg','png','pdf','svg','ai','eps','psd'];
@@ -1197,7 +1198,8 @@
           phone: document.getElementById('qPhone').value.trim(),
           email: document.getElementById('qEmail').value.trim(),
           details: document.getElementById('qDetails').value.trim(),
-          website: document.getElementById('qWebsite').value
+          website: document.getElementById('qWebsite').value,
+          offer: quoteOffer
         };
         if (PREVIEW) await new Promise(r => setTimeout(r, 700));
         else {
@@ -1207,7 +1209,10 @@
           const res = await fetch(BACKEND_URL, { method: 'POST', body: JSON.stringify(payload) });  // plain-text body avoids a CORS preflight
           const out = await res.json();
           if (!out.ok) throw new Error(out.error || 'Request failed');
-          if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: 'AW-17427058690/kXgACPrPrYIbEIKg7_VA' });
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', { send_to: 'AW-17427058690/kXgACPrPrYIbEIKg7_VA' });
+            if (quoteOffer) gtag('event', 'offer_request', { offer: quoteOffer });   // shows up in Google Analytics
+          }
         }
         const via = { 'E-mail': 'e-mail', 'Phone': 'phone', 'Text': 'text' }[contact];
         document.getElementById('qDoneTitle').textContent = `Got it, ${name.split(' ')[0]}!`;
@@ -1227,7 +1232,7 @@
       }
     });
     document.getElementById('qAgain').addEventListener('click', () => {
-      qForm.reset(); files = []; renderFiles(); qStatus.textContent = '';
+      qForm.reset(); files = []; renderFiles(); qStatus.textContent = ''; quoteOffer = '';
       syncQuoteShop(document.querySelector('.seg button[aria-pressed="true"]').dataset.loc);
       document.getElementById('qDone').hidden = true; qForm.hidden = false;
     });
@@ -1367,6 +1372,7 @@
       box.value = box.value.replace(/^Business Package – .*\n?\n?/, '');
       box.value = line + '\n\n' + box.value;
       box.closest('.field').classList.remove('bad');
+      quoteOffer = `Business Package – ${p.method} ($${p.price})`;
     }
     pkg.querySelectorAll('.pkg-choice button').forEach(b => b.addEventListener('click', () => setPkgPlan(b.dataset.plan)));
     document.getElementById('pkgRequest').addEventListener('click', () => {
