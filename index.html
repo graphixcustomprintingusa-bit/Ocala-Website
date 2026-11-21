@@ -472,10 +472,10 @@
   .pkg-where{font-size:.9rem;color:var(--ink-2);font-weight:600}
   .pkg-art{grid-column:1 / -1;display:flex;gap:10px;margin-top:12px;align-items:flex-end}
   .pkg-view{display:grid;justify-items:center;gap:4px;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
-  .pkg-view svg{width:92px;height:92px;display:block}
-  .pkg-view svg .garment{fill:var(--paper-2);stroke:var(--ink);stroke-width:3;stroke-linejoin:round}
-  .pkg-view svg .detail{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-  .pkg-view svg .area{fill:var(--hl);stroke:var(--ink);stroke-width:2.5}
+  .pkg-photo{position:relative;display:block;height:110px}
+  .pkg-photo img{height:100%;width:auto;display:block;filter:drop-shadow(4px 5px 0 rgba(22,19,28,.10))}
+  :root[data-shop="ocala"] .pkg-photo img{filter:drop-shadow(0 0 1px rgba(255,255,255,.35)) drop-shadow(4px 5px 0 rgba(0,0,0,.45))}
+  .pkg-spot{position:absolute;border:2px dashed var(--hl-2);border-radius:4px;background:color-mix(in srgb, var(--hl) 45%, transparent)}
   .pkg-method{grid-column:1 / -1;justify-self:start;margin-top:12px;font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);border-radius:999px;padding:.25rem .7rem;background:var(--paper)}
   .pkg-method.stitched{background:var(--hl);color:var(--on-hl)}
 
@@ -523,7 +523,7 @@
     .pkg-where{font-size:.78rem;line-height:1.35}
     .pkg-art{margin-top:8px;gap:6px}
     .pkg-view{font-size:.6rem}
-    .pkg-view svg{width:58px;height:58px}
+    .pkg-photo{height:74px}
     .pkg-method{font-size:.66rem;margin-top:8px}
     .pkg-price{padding:22px;box-shadow:6px 6px 0 var(--hl)}
   }
@@ -627,12 +627,7 @@
           <h3 class="pkg-name">Cotton T-shirts</h3>
           <span class="pkg-where">Small chest logo + full back</span>
           <div class="pkg-art" aria-hidden="true">
-            <span class="pkg-view">
-              <svg viewBox="0 0 120 120"><path class="garment" d="M40 16 L20 25 L6 44 L21 55 L30 47 L30 106 L90 106 L90 47 L99 55 L114 44 L100 25 L80 16 Q70 28 60 28 Q50 28 40 16 Z"/><path class="detail" d="M42 17 Q50 30 60 30 Q70 30 78 17"/><rect class="area" x="68" y="40" width="13" height="11" rx="2"/></svg>Front
-            </span>
-            <span class="pkg-view">
-              <svg viewBox="0 0 120 120"><path class="garment" d="M40 16 L20 25 L6 44 L21 55 L30 47 L30 106 L90 106 L90 47 L99 55 L114 44 L100 25 L80 16 Q70 22 60 22 Q50 22 40 16 Z"/><rect class="area" x="40" y="38" width="40" height="46" rx="3"/></svg>Back
-            </span>
+            <span class="pkg-view"><span class="pkg-photo"><img src="images/package/tee-black-front.webp" alt="" loading="lazy" /><i class="pkg-spot" style="left:57%;top:19%;width:11%;height:9%"></i></span>Front</span><span class="pkg-view"><span class="pkg-photo"><img src="images/package/tee-black-back.webp" alt="" loading="lazy" /><i class="pkg-spot" style="left:29%;top:18%;width:42%;height:38%"></i></span>Back</span>
           </div>
           <span class="pkg-method">Printed</span>
           <span class="pkg-go">See details →</span>
@@ -643,9 +638,7 @@
           <h3 class="pkg-name">Richardson hats</h3>
           <span class="pkg-where">Logo on the front</span>
           <div class="pkg-art" aria-hidden="true">
-            <span class="pkg-view">
-              <svg viewBox="0 0 120 120"><path class="garment" d="M18 76 Q18 30 60 26 Q102 30 102 76 Z"/><path class="garment" d="M12 76 L108 76 Q112 92 60 96 Q8 92 12 76 Z"/><path class="detail" d="M60 27 L60 76 M38 34 Q32 52 32 76 M82 34 Q88 52 88 76"/><circle class="detail" cx="60" cy="27" r="3"/><rect class="area" x="42" y="44" width="36" height="22" rx="3"/></svg>Front
-            </span>
+            <span class="pkg-view"><span class="pkg-photo"><img src="images/package/hatfp-black-front.webp" alt="" loading="lazy" data-hat /><i class="pkg-spot" style="left:38%;top:29%;width:24%;height:24%"></i></span>Front</span>
           </div>
           <span class="pkg-method" data-upgrade>Printed</span>
           <span class="pkg-go">See details →</span>
@@ -656,9 +649,7 @@
           <h3 class="pkg-name">Hoodies</h3>
           <span class="pkg-where">Large logo on the front</span>
           <div class="pkg-art" aria-hidden="true">
-            <span class="pkg-view">
-              <svg viewBox="0 0 120 120"><path class="garment" d="M42 20 Q60 6 78 20 L98 30 L112 96 L98 100 L90 60 L90 108 L30 108 L30 60 L22 100 L8 96 L22 30 Z"/><path class="detail" d="M44 22 Q48 40 60 44 Q72 40 76 22 M56 44 L54 60 M64 44 L66 60 M42 86 L78 86"/><rect class="area" x="40" y="50" width="40" height="30" rx="3"/></svg>Front
-            </span>
+            <span class="pkg-view"><span class="pkg-photo"><img src="images/package/hoodie-jet-black-front.webp" alt="" loading="lazy" /><i class="pkg-spot" style="left:30%;top:33%;width:42%;height:22%"></i></span>Front</span>
           </div>
           <span class="pkg-method">Printed</span>
           <span class="pkg-go">See details →</span>
@@ -669,9 +660,7 @@
           <h3 class="pkg-name">Polos</h3>
           <span class="pkg-where">Logo on the left chest</span>
           <div class="pkg-art" aria-hidden="true">
-            <span class="pkg-view">
-              <svg viewBox="0 0 120 120"><path class="garment" d="M40 16 L20 25 L6 44 L21 55 L30 47 L30 106 L90 106 L90 47 L99 55 L114 44 L100 25 L80 16 L60 26 Z"/><path class="detail" d="M40 16 L52 34 L60 26 L68 34 L80 16 M60 26 L60 50"/><circle cx="60" cy="38" r="1.8" fill="var(--ink)"/><circle cx="60" cy="46" r="1.8" fill="var(--ink)"/><rect class="area" x="70" y="42" width="13" height="11" rx="2"/></svg>Front
-            </span>
+            <span class="pkg-view"><span class="pkg-photo"><img src="images/package/polo-black-front.webp" alt="" loading="lazy" /><i class="pkg-spot" style="left:58%;top:23%;width:10%;height:8%"></i></span>Front</span>
           </div>
           <span class="pkg-method" data-upgrade>Printed</span>
           <span class="pkg-go">See details →</span>
@@ -1367,6 +1356,7 @@
       document.getElementById('pkgUpgradeLine').textContent = p.note;
       pkg.querySelectorAll('[data-upgrade]').forEach(m => { m.textContent = p.method; m.classList.toggle('stitched', key === 'embroidered'); });
       pkg.dataset.plan = key;
+      pkg.querySelectorAll('img[data-hat]').forEach(img => img.src = key === 'embroidered' ? 'images/package/hat112-black-white-front.webp' : 'images/package/hatfp-black-front.webp');
       document.getElementById('pkgDetails').href = `package.html?plan=${key}`;
       pkg.querySelectorAll('a.pkg-item').forEach(a => { a.href = `package.html?plan=${key}#${a.dataset.item}`; });
     }
