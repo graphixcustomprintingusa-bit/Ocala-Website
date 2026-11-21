@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Package | Graphix Custom Apparel</title>
+  <meta name="description" content="Limited-time Business Package from Graphix Custom Apparel: 12 cotton T-shirts, 12 Richardson hats, 3 hoodies and 3 polos with your logo, from $500." />
+  <link rel="icon" type="image/svg+xml" href="favicon-lakeland.svg" id="favicon" />
+  <script>try{var q=(location.search.match(/[?&]shop=(lakeland|ocala)/)||[])[1];if((q||localStorage.getItem('graphix-shop'))==='ocala'){document.documentElement.dataset.shop='ocala';document.getElementById('favicon').href='favicon-ocala.svg'}}catch(e){}</script>
+
+  <!-- Analytics (same tag as the main site) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YSTLBL9LS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1YSTLBL9LS');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Same tokens as the main site: Lakeland look by default, Ocala look with data-shop="ocala". */
+    :root{
+      --ink:#16131c; --ink-2:#3b3645;
+      --paper:#f6f3ee; --paper-2:#ece7df; --white:#fff;
+      --hl:#43ace2; --on-hl:#16131c; --hl-2:#804e9f;
+      --btn-bg:#804e9f; --btn-fg:#fff;
+      --dark:#16131c; --dot:rgba(22,19,28,.12); --yellow:#ffd23f;
+      --nav-bg:rgba(246,243,238,.92);
+      --display:'Anton', Impact, sans-serif;
+      --body:'Montserrat', system-ui, sans-serif;
+    }
+    :root[data-shop="ocala"]{
+      --ink:#f1ecf7; --ink-2:#bdb3cc;
+      --paper:#131019; --paper-2:#1b1723; --white:#231d2d;
+      --hl:#b384e3; --on-hl:#131019; --hl-2:#5bbdf0;
+      --btn-bg:#b384e3; --btn-fg:#131019;
+      --dark:#0a080e; --dot:rgba(255,255,255,.07);
+      --nav-bg:rgba(19,16,25,.9);
+      color-scheme:dark;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    [hidden]{display:none !important}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--body);font-weight:500;background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+    .halftone{background-image:radial-gradient(var(--dot) 1.2px, transparent 1.4px);background-size:14px 14px}
+    .kicker{font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--hl-2)}
+    .display{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.92}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:800 1rem var(--body);text-decoration:none;border-radius:999px;padding:.95rem 1.5rem;border:2px solid var(--ink);cursor:pointer;transition:transform .15s, box-shadow .15s}
+    .btn-main{background:var(--btn-bg);color:var(--btn-fg);box-shadow:4px 4px 0 var(--ink)}
+    .btn-main:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+    .btn-ghost{background:var(--white);color:var(--ink);box-shadow:4px 4px 0 var(--hl-2)}
+    .btn-ghost:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--hl-2)}
+    .btn:focus-visible,button:focus-visible{outline:3px solid var(--hl);outline-offset:3px}
+
+    /* header */
+    .top{position:sticky;top:0;z-index:40;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
+    .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+    .logo img{height:58px;width:auto}
+    .logo .on-night{display:none}
+    :root[data-shop="ocala"] .logo .on-day{display:none}
+    :root[data-shop="ocala"] .logo .on-night{display:block}
+    .top-links{display:flex;align-items:center;gap:18px}
+    .back{font-weight:700;text-decoration:none}
+    .back:hover{text-decoration:underline}
+    .top .btn{padding:.6rem 1.1rem;font-size:.9rem}
+
+    /* hero */
+    .hero{padding-block:64px 40px}
+    .hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+    .tag{justify-self:start;display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:#16131c;border:2px solid #16131c;border-radius:10px;padding:.4rem .8rem;font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;transform:rotate(-2deg)}
+    .tag i{width:9px;height:9px;border-radius:50%;background:#d0342c;box-shadow:0 0 0 3px rgba(208,52,44,.25)}
+    .hero h1{font-size:clamp(3rem,8vw,6rem);margin:14px 0 14px;text-shadow:-3px -3px 0 var(--hl),4px 4px 0 var(--hl-2);text-wrap:balance}
+    .hero p.lede{color:var(--ink-2);font-size:1.1rem;max-width:52ch}
+    .scroll-hint{margin-top:22px;font-weight:800;font-size:.9rem}
+    .scroll-hint a{text-decoration:none}
+
+    .pricebox{background:var(--white);border:2px solid var(--ink);border-radius:22px;padding:26px;display:grid;gap:16px;box-shadow:10px 10px 0 var(--hl)}
+    .choice{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--paper-2);border:2px solid var(--ink);border-radius:14px;padding:5px}
+    .choice button{font:700 .9rem var(--body);color:var(--ink);background:transparent;border:0;border-radius:10px;padding:.65rem .5rem;cursor:pointer;line-height:1.2}
+    .choice button small{display:block;font-weight:600;font-size:.72rem;color:var(--ink-2)}
+    .choice button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+    .choice button[aria-pressed="true"] small{color:inherit;opacity:.8}
+    .amount{display:flex;align-items:flex-start;gap:4px;font-family:var(--display);line-height:.85}
+    .amount sup{font-size:2rem;margin-top:.35rem}
+    .amount span{font-size:clamp(4.6rem,10vw,6.4rem);text-shadow:-3px -3px 0 var(--hl),5px 5px 0 var(--hl-2);font-variant-numeric:tabular-nums}
+    .per{font-weight:700;color:var(--ink-2)}
+    .per b{color:var(--ink)}
+
+    /* product panels */
+    .item{padding-block:56px;border-top:2px solid var(--ink)}
+    .item:nth-of-type(even){background:var(--paper-2)}
+    .item .wrap{display:grid;grid-template-columns:110px minmax(0,1fr) 340px;gap:32px;align-items:center}
+    .item-info{display:grid;gap:12px;align-content:center}
+    .item-info .count{font-family:var(--display);font-size:4.4rem;line-height:.9;text-shadow:3px 3px 0 var(--hl)}
+    .item-info h2{font-size:clamp(2.2rem,4vw,3rem)}
+    .item-info .where{font-weight:700;color:var(--ink-2)}
+    .pill{justify-self:start;font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);border-radius:999px;padding:.3rem .8rem;background:var(--white)}
+    .pill.stitched{background:var(--hl);color:var(--on-hl)}
+    .notes{list-style:none;display:grid;gap:8px;margin-top:4px}
+    .notes li{display:flex;gap:10px;font-size:.95rem}
+    .notes li::before{content:"✓";font-weight:800;color:var(--hl-2)}
+
+    /* color rail */
+    .colors{display:grid;grid-template-columns:repeat(2,46px);gap:10px;justify-content:center;align-content:center}
+    .colors .lbl,.colors .colorname{grid-column:1 / -1}
+    .colors .lbl{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);text-align:center}
+    .swatch{width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);flex:none;cursor:pointer;position:relative;transition:transform .15s}
+    .swatch:hover{transform:scale(1.08)}
+    .swatch[aria-pressed="true"]{box-shadow:0 0 0 3px var(--paper),0 0 0 6px var(--ink)}
+    .colorname{font-size:.8rem;font-weight:700;text-align:center;min-height:2.4em}
+
+    /* stage + spin */
+    .stage{position:relative;display:grid;justify-items:center;gap:14px}
+    .viewer{position:relative;width:min(460px,100%);aspect-ratio:400/444;perspective:1400px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+    .viewer.dragging{cursor:grabbing}
+    .flipper{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.8,.25,1)}
+    .viewer.dragging .flipper{transition:none}
+    .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    .face.back{transform:rotateY(180deg)}
+    .face .photo{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;filter:drop-shadow(8px 10px 0 rgba(22,19,28,.10))}
+    :root[data-shop="ocala"] .face .photo{filter:drop-shadow(8px 10px 0 rgba(0,0,0,.45))}
+    .logo-area{position:absolute;display:grid;place-items:center;border:2px dashed var(--hl-2);border-radius:6px;background:color-mix(in srgb, var(--hl) 35%, transparent);font:800 clamp(.55rem,1.4vw,.8rem) var(--body);letter-spacing:.1em;color:#16131c;text-shadow:0 0 6px rgba(255,255,255,.7);pointer-events:none}
+    .face-label{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+
+    .spot{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:3px solid var(--ink);background:var(--yellow);color:#16131c;font:800 1rem/1 var(--body);cursor:pointer;display:grid;place-items:center;box-shadow:3px 3px 0 var(--ink);z-index:2}
+    .spot::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--yellow);animation:ping 2.2s ease-out infinite}
+    @keyframes ping{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+    .spot[aria-expanded="true"]{background:var(--ink);color:var(--paper)}
+    .pop{position:absolute;z-index:5;width:220px;background:var(--white);border:2px solid var(--ink);border-radius:14px;padding:12px 14px;box-shadow:5px 5px 0 var(--hl);font-size:.88rem;transform:translate(-50%, 22px)}
+    .pop b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.25rem;line-height:1;margin-bottom:4px}
+
+    .spin-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+    .spin-btn{font:800 .9rem var(--body);border:2px solid var(--ink);background:var(--white);color:var(--ink);border-radius:999px;padding:.55rem 1rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+    .spin-btn:hover{transform:translate(-1px,-1px)}
+    .spin-hint{font-size:.82rem;font-weight:700;color:var(--ink-2)}
+
+    /* summary */
+    .summary{padding-block:72px;border-top:2px solid var(--ink)}
+    .summary .card{background:var(--white);border:2px solid var(--ink);border-radius:24px;padding:36px;box-shadow:10px 10px 0 var(--hl);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:center}
+    .summary h2{font-size:clamp(2.4rem,5vw,3.6rem);text-shadow:-2px -2px 0 var(--hl),3px 3px 0 var(--hl-2)}
+    .summary ul{list-style:none;display:grid;gap:8px;margin-top:14px}
+    .summary li{display:flex;gap:10px}
+    .summary li::before{content:"✓";font-weight:800;color:var(--hl-2)}
+    .summary .actions{display:grid;gap:12px}
+    .fine{font-size:.82rem;color:var(--ink-2);text-align:center}
+
+    /* phone: sticky deal bar */
+    .dealbar{display:none}
+
+    @media (max-width:980px){
+      .hero .wrap{grid-template-columns:1fr}
+      .item .wrap{grid-template-columns:1fr;gap:20px}
+      .item-info{order:1}
+      .stage{order:2}
+      .colors{order:3;display:flex;flex-wrap:wrap;justify-content:center}
+      .colors .lbl{width:100%}
+      .colorname{min-height:0;width:100%}
+      .summary .card{grid-template-columns:1fr;padding:26px}
+    }
+    @media (max-width:640px){
+      .top .wrap{height:64px}
+      .logo img{height:46px}
+      .back{display:none}
+      .hero{padding-block:40px 28px}
+      .item{padding-block:40px}
+      .item-info .count{font-size:3.4rem}
+      .swatch{width:40px;height:40px}
+      .pop{width:190px}
+      .dealbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;align-items:center;justify-content:space-between;gap:12px;background:var(--dark);color:#fff;padding:10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));border-top:2px solid var(--ink)}
+      .dealbar b{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1}
+      .dealbar small{display:block;font-size:.7rem;font-weight:700;opacity:.8}
+      .dealbar .btn{padding:.6rem 1rem;font-size:.9rem;border-color:#fff;box-shadow:none}
+      body{padding-bottom:72px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .flipper{transition:none}
+      .spot::after{animation:none}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <a href="index.html" class="logo" aria-label="Graphix Custom Apparel home"><img class="on-day" src="logo-day.svg" alt="Graphix Custom Apparel" /><img class="on-night" src="logo-night.svg" alt="Graphix Custom Apparel" /></a>
+      <div class="top-links">
+        <a class="back" href="index.html">← Back to home</a>
+        <a class="btn btn-main request-link" href="index.html#quote">Request this package</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero halftone">
+    <div class="wrap">
+      <div>
+        <span class="tag"><i></i>Limited time offer</span>
+        <h1 class="display">Business package</h1>
+        <p class="lede">Everything your team needs to look the part: 30 pieces with your logo, printed or stitched in-house. Pick colors, spin each item, and tap the yellow dots to see where your logo goes.</p>
+        <p class="scroll-hint"><a href="#tee">Scroll to see what's inside ↓</a></p>
+      </div>
+      <div class="pricebox" aria-live="polite">
+        <div class="choice" role="group" aria-label="Choose decoration">
+          <button type="button" data-plan="printed" aria-pressed="true">Printed<small>Everything printed</small></button>
+          <button type="button" data-plan="embroidered" aria-pressed="false">Embroidered<small>Hats &amp; polos stitched</small></button>
+        </div>
+        <div class="amount"><sup>$</sup><span data-bind="price">500</span></div>
+        <p class="per">30 pieces · about <b data-bind="each">$16.67</b> per piece</p>
+        <a class="btn btn-main request-link" href="index.html#quote">Request this package →</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="items"></main>
+
+  <section class="summary halftone">
+    <div class="wrap">
+      <div class="card">
+        <div>
+          <span class="kicker">Your package</span>
+          <h2 class="display">30 pieces. <span data-bind="priceText">$500</span>.</h2>
+          <ul>
+            <li>12 cotton T-shirts · small chest logo + full back</li>
+            <li>12 Richardson hats · front logo · <span data-bind="method">printed</span></li>
+            <li>3 hoodies · large front logo</li>
+            <li>3 polos · left chest logo · <span data-bind="method">printed</span></li>
+          </ul>
+        </div>
+        <div class="actions">
+          <a class="btn btn-main request-link" href="index.html#quote">Request this package →</a>
+          <a class="btn btn-ghost" href="index.html">Back to the main page</a>
+          <p class="fine">Limited time offer. Ask us about colors and sizes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="dealbar" aria-hidden="false">
+    <div><small>Business package</small><b data-bind="priceText">$500</b></div>
+    <a class="btn btn-main request-link" href="index.html#quote">Request</a>
+  </div>
+
+<script>
+/* ---------- Package settings ---------- */
+const PLANS = {
+  printed:     { price: 500, method: 'Printed' },
+  embroidered: { price: 650, method: 'Embroidered' }
+};
+const PIECES = 30;
+let plan = new URLSearchParams(location.search).get('plan') === 'embroidered' ? 'embroidered' : 'printed';
+
+/* Product photos: images/package/<model>-<color>-<front|back>.webp
+   Logo areas and detail dots are in % of the photo, so they line up for every color. */
+const PRODUCTS = {"tee": {"ratio": "902/1000", "colors": [["Black", "black", "#1d1f1f"], ["White", "white", "#ebedf0"], ["Sport Grey", "sport-grey", "#90959b"], ["Charcoal", "charcoal", "#545855"], ["Navy", "navy", "#232c40"], ["Royal", "royal", "#114b93"], ["Red", "red", "#b31d30"], ["Safety Green", "safety-green", "#d2fd0b"], ["Safety Orange", "safety-orange", "#fb6507"], ["Safety Pink", "safety-pink", "#fd74a3"], ["Sand", "sand", "#c9bfb1"]]}, "hatfp": {"ratio": "1000/623", "colors": [["Black", "black", "#131313"], ["Black / White", "black-white", "linear-gradient(135deg,#131313 50%,#f2f2f2 50%)"], ["Charcoal / Black", "charcoal-black", "linear-gradient(135deg,#514d4c 50%,#151515 50%)"], ["Charcoal / White", "charcoal-white", "linear-gradient(135deg,#514d4c 50%,#f2f2f2 50%)"], ["Navy", "navy", "#0d1422"], ["White", "white", "#e5e5e5"]]}, "hat112": {"ratio": "1000/671", "colors": [["Black / White", "black-white", "linear-gradient(135deg,#121212 50%,#f2f2f2 50%)"], ["Charcoal / Neon Orange", "charcoal-neon-orange", "linear-gradient(135deg,#524e4d 50%,#ff6a13 50%)"], ["Charcoal / Neon Yellow", "charcoal-neon-yellow", "linear-gradient(135deg,#524e4d 50%,#d4ef2a 50%)"], ["Heather Grey / Black", "heather-grey-black", "linear-gradient(135deg,#696c6d 50%,#151515 50%)"], ["Heather Grey / White", "heather-grey-white", "linear-gradient(135deg,#696c6d 50%,#f2f2f2 50%)"], ["Navy", "navy", "#0c1322"], ["Navy / White", "navy-white", "linear-gradient(135deg,#0c1322 50%,#f2f2f2 50%)"], ["Red", "red", "#9d1917"], ["Red / White", "red-white", "linear-gradient(135deg,#9d1917 50%,#f2f2f2 50%)"], ["Royal", "royal", "#0e3872"], ["Royal / White", "royal-white", "linear-gradient(135deg,#0e3872 50%,#f2f2f2 50%)"], ["White", "white", "#e7e7e7"]]}, "polo": {"ratio": "901/1000", "colors": [["Black", "black", "#191b1a"], ["White", "white", "#e9ebec"], ["Silver", "silver", "#a3a7a2"], ["Iron Grey", "iron-grey", "#373839"], ["True Navy", "true-navy", "#192132"], ["True Royal", "true-royal", "#0d4183"], ["True Red", "true-red", "#ab1024"]]}, "hoodie": {"ratio": "753/1000", "colors": [["Jet Black", "jet-black", "#1a1c1c"], ["Athletic Heather", "athletic-heather", "#a4a7ab"], ["White", "white", "#eff2f4"], ["True Navy", "true-navy", "#28324c"], ["True Royal", "true-royal", "#1a4686"], ["Red", "red", "#a01727"], ["Light Sand", "light-sand", "#c9bcb0"]]}};
+const AREAS = {"tee": {"front": [[57, 19, 11, 9, ""]], "back": [[29, 18, 42, 38, "FULL BACK"]]}, "hatfp": {"front": [[38, 29, 24, 24, "YOUR LOGO"]], "back": []}, "hat112": {"front": [[38, 29, 24, 22, "YOUR LOGO"]], "back": []}, "polo": {"front": [[58, 23, 10, 8, ""]], "back": []}, "hoodie": {"front": [[30, 33, 42, 22, "LARGE LOGO"]], "back": []}};
+const SPOTS = {"tee": {"front": [[68, 19, "Small chest logo", "Your logo on the left chest."], [50, 70, "Gildan 5000", "Classic heavy cotton tee."]], "back": [[71, 18, "Full back print", "A big version of your logo or design across the back."]]}, "hatfp": {"front": [[62, 29, "Front logo", "Your logo on the front panel, printed."], [80, 62, "Richardson 112 FP", "Flat front panel made for printing."]], "back": [[50, 55, "Snapback", "Adjustable snap closure."]]}, "hat112": {"front": [[62, 29, "Front logo", "Your logo on the front panel, embroidered."], [80, 60, "Richardson 112", "The classic trucker, made for embroidery."]], "back": [[50, 55, "Snapback", "Adjustable snap closure."]]}, "polo": {"front": [[68, 23, "Left chest logo", "Your logo on the left chest, <span data-bind=\"methodLower\">printed</span>."], [45, 12, "Sport-Tek ST550", "Performance polo with collar and button placket."]], "back": []}, "hoodie": {"front": [[72, 33, "Large front logo", "Your logo big and bold across the front."], [50, 70, "Port & Company PC78H", "Front pocket and drawstring hood."]], "back": []}};
+
+const ITEMS = [
+  { id: 'tee',    model: () => 'tee',    count: 12, name: 'Cotton T-shirts', where: 'Small chest logo + full back', upgrade: false,
+    notes: ['Gildan 5000 heavy cotton', 'Logo on the left chest', 'Full back print'] },
+  { id: 'hat',    model: () => plan === 'embroidered' ? 'hat112' : 'hatfp', count: 12, name: 'Richardson hats', where: 'Logo on the front', upgrade: true,
+    notes: () => plan === 'embroidered' ? ['Richardson 112 trucker', 'Embroidered front logo'] : ['Richardson 112 FP trucker', 'Printed front logo'] },
+  { id: 'polo',   model: () => 'polo',   count: 3,  name: 'Polos', where: 'Logo on the left chest', upgrade: true,
+    notes: ['Sport-Tek ST550 performance polo', 'Logo on the left chest'] },
+  { id: 'hoodie', model: () => 'hoodie', count: 3,  name: 'Hoodies', where: 'Large logo on the front', upgrade: false,
+    notes: ['Port & Company PC78H fleece hoodie', 'Large logo across the front'] }
+];
+const photo = (model, slug, side) => `images/package/${model}-${slug}-${side}.webp`;
+
+/* ---------- Build the four panels ---------- */
+const main = document.getElementById('items');
+ITEMS.forEach((it, n) => {
+  const sec = document.createElement('section');
+  sec.className = 'item';
+  sec.id = it.id;
+  sec.innerHTML = `
+    <div class="wrap">
+      <div class="colors" role="group" aria-label="${it.name} colors"></div>
+      <div class="stage">
+        <div class="viewer" aria-label="${it.name}: drag to turn around"><div class="flipper"></div></div>
+        <div class="spin-row">
+          <button type="button" class="spin-btn">↻ Turn around</button>
+          <span class="spin-hint">or drag to spin</span>
+        </div>
+      </div>
+      <div class="item-info">
+        <span class="kicker">Item ${n + 1} of 4</span>
+        <span class="count">${it.count}</span>
+        <h2 class="display">${it.name}</h2>
+        <span class="where">${it.where}</span>
+        <span class="pill"${it.upgrade ? ' data-upgrade' : ''}>Printed</span>
+        <ul class="notes"></ul>
+      </div>
+    </div>`;
+  main.appendChild(sec);
+  it.sec = sec;
+  renderItem(it);
+
+  // spin: button flips, dragging turns it live; a short drag is enough to turn it around
+  const viewer = sec.querySelector('.viewer'), flipper = sec.querySelector('.flipper');
+  let angle = 0, startX = 0, startAngle = 0, dragging = false;
+  const setAngle = a => { angle = a; flipper.style.transform = `rotateY(${a}deg)`; };
+  it.resetSpin = () => setAngle(0);
+  sec.querySelector('.spin-btn').addEventListener('click', () => { closePops(); setAngle(Math.round(angle / 180) * 180 + 180); });
+  viewer.addEventListener('pointerdown', e => {
+    if (e.target.closest('.spot')) return;
+    dragging = true; startX = e.clientX; startAngle = angle;
+    viewer.classList.add('dragging'); viewer.setPointerCapture(e.pointerId);
+  });
+  viewer.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) closePops();
+    setAngle(startAngle + dx * 0.6);
+  });
+  const end = () => {
+    if (!dragging) return;
+    dragging = false; viewer.classList.remove('dragging');
+    const turned = angle - startAngle;
+    setAngle(turned > 40 ? startAngle + 180 : turned < -40 ? startAngle - 180 : startAngle);
+  };
+  viewer.addEventListener('pointerup', end);
+  viewer.addEventListener('pointercancel', end);
+});
+
+// (Re)draws an item's photos, colors and dots for its current model
+function renderItem(it){
+  const sec = it.sec, model = it.model(), prod = PRODUCTS[model];
+  if (sec.dataset.model === model) return;
+  sec.dataset.model = model;
+  const [firstName, firstSlug] = prod.colors[0];
+  const colors = sec.querySelector('.colors');
+  colors.innerHTML = `<span class="lbl">Colors</span>` +
+    prod.colors.map(([nm, slug, sw], k) => `<button type="button" class="swatch" style="background:${sw}" data-slug="${slug}" data-name="${nm}" aria-label="${nm}" title="${nm}" aria-pressed="${k === 0}"></button>`).join('') +
+    `<span class="colorname">${firstName}</span>`;
+  const viewer = sec.querySelector('.viewer');
+  viewer.style.aspectRatio = prod.ratio;
+  sec.querySelector('.flipper').innerHTML = ['front', 'back'].map(side => `
+    <div class="face ${side}">
+      <img class="photo" src="${photo(model, firstSlug, side)}" alt="${it.name}, ${firstName}, ${side}" draggable="false" />
+      ${AREAS[model][side].map(([l, t, w, h, label]) => `<span class="logo-area" style="left:${l}%;top:${t}%;width:${w}%;height:${h}%">${label}</span>`).join('')}
+      ${SPOTS[model][side].map(([x, y, title, text]) => `
+        <button type="button" class="spot" style="left:${x}%;top:${y}%" aria-expanded="false" data-title="${title}" data-text="${text.replace(/"/g, '&quot;')}">+</button>`).join('')}
+      <span class="face-label">${side}</span>
+    </div>`).join('');
+  const notes = typeof it.notes === 'function' ? it.notes() : it.notes;
+  sec.querySelector('.notes').innerHTML = notes.map(t => `<li>${t}</li>`).join('');
+
+  colors.querySelectorAll('.swatch').forEach(sw => sw.addEventListener('click', () => {
+    colors.querySelectorAll('.swatch').forEach(s => s.setAttribute('aria-pressed', s === sw));
+    colors.querySelector('.colorname').textContent = sw.dataset.name;
+    sec.querySelectorAll('.face').forEach(face => {
+      const side = face.classList.contains('back') ? 'back' : 'front';
+      const img = face.querySelector('.photo');
+      img.src = photo(model, sw.dataset.slug, side);
+      img.alt = `${it.name}, ${sw.dataset.name}, ${side}`;
+    });
+  }));
+  sec.querySelectorAll('.spot').forEach(sp => sp.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = sp.getAttribute('aria-expanded') === 'true';
+    closePops();
+    if (open) return;
+    sp.setAttribute('aria-expanded', 'true');
+    const pop = document.createElement('div');
+    pop.className = 'pop';
+    pop.innerHTML = `<b></b><span></span>`;
+    pop.querySelector('b').textContent = sp.dataset.title;
+    pop.querySelector('span').innerHTML = sp.dataset.text;
+    applyPlanText(pop);
+    pop.style.left = Math.min(Math.max(parseFloat(sp.style.left), 26), 74) + '%';
+    pop.style.top = sp.style.top;
+    sp.parentElement.appendChild(pop);
+  }));
+}
+
+function closePops(){
+  document.querySelectorAll('.pop').forEach(p => p.remove());
+  document.querySelectorAll('.spot[aria-expanded="true"]').forEach(s => s.setAttribute('aria-expanded', 'false'));
+}
+document.addEventListener('click', e => { if (!e.target.closest('.spot') && !e.target.closest('.pop')) closePops(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePops(); });
+
+/* ---------- Printed / Embroidered ---------- */
+function applyPlanText(scope){
+  const p = PLANS[plan];
+  scope.querySelectorAll('[data-bind="methodLower"]').forEach(e => e.textContent = p.method.toLowerCase());
+}
+function setPlan(key){
+  plan = key;
+  const p = PLANS[key];
+  document.querySelectorAll('.choice button').forEach(b => b.setAttribute('aria-pressed', b.dataset.plan === key));
+  document.querySelectorAll('[data-bind="price"]').forEach(e => e.textContent = p.price);
+  document.querySelectorAll('[data-bind="priceText"]').forEach(e => e.textContent = '$' + p.price);
+  document.querySelectorAll('[data-bind="each"]').forEach(e => e.textContent = '$' + (p.price / PIECES).toFixed(2));
+  document.querySelectorAll('[data-bind="method"]').forEach(e => e.textContent = p.method.toLowerCase());
+  document.querySelectorAll('[data-upgrade]').forEach(m => { m.textContent = p.method; m.classList.toggle('stitched', key === 'embroidered'); });
+  applyPlanText(document);
+  ITEMS.forEach(it => { if (it.sec && it.sec.dataset.model !== it.model()) { renderItem(it); it.resetSpin && it.resetSpin(); } });
+  // every "Request" button opens the main page's quote form with this package filled in
+  document.querySelectorAll('.request-link').forEach(a => a.href = `index.html?package=${key}#quote`);
+}
+document.querySelectorAll('.choice button').forEach(b => b.addEventListener('click', () => setPlan(b.dataset.plan)));
+setPlan(plan);
+</script>
+</body>
+</html>
