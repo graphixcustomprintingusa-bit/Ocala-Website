@@ -67,8 +67,8 @@
     :root[data-shop="ocala"] .logo .on-day{display:none}
     :root[data-shop="ocala"] .logo .on-night{display:block}
     .top-links{display:flex;align-items:center;gap:18px}
-    .back{font-weight:700;text-decoration:none}
-    .back:hover{text-decoration:underline}
+    .back-home{font-weight:700;text-decoration:none}
+    .back-home:hover{text-decoration:underline}
     .top .btn{padding:.6rem 1.1rem;font-size:.9rem}
 
     /* hero */
@@ -120,12 +120,11 @@
     .stage{position:relative;display:grid;justify-items:center;gap:14px}
     .viewer{position:relative;width:min(460px,100%);aspect-ratio:400/444;perspective:1400px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
     .viewer.dragging{cursor:grabbing}
-    .flipper{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.8,.25,1)}
+    .flipper{position:absolute;inset:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
     .viewer.dragging .flipper{transition:none}
-    .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    .face{position:absolute;inset:0}   /* which side shows is set by the spin script */
     .face.back{transform:rotateY(180deg)}
-    .face .photo{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;filter:drop-shadow(8px 10px 0 rgba(22,19,28,.10))}
-    :root[data-shop="ocala"] .face .photo{filter:drop-shadow(8px 10px 0 rgba(0,0,0,.45))}
+    .face .photo{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none}
     .logo-area{position:absolute;display:grid;place-items:center;border:2px dashed var(--hl-2);border-radius:6px;background:color-mix(in srgb, var(--hl) 35%, transparent);font:800 clamp(.55rem,1.4vw,.8rem) var(--body);letter-spacing:.1em;color:#16131c;text-shadow:0 0 6px rgba(255,255,255,.7);pointer-events:none}
     .face-label{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
 
@@ -167,7 +166,7 @@
     @media (max-width:640px){
       .top .wrap{height:64px}
       .logo img{height:46px}
-      .back{display:none}
+      .back-home{display:none}
       .hero{padding-block:40px 28px}
       .item{padding-block:40px}
       .item-info .count{font-size:3.4rem}
@@ -192,7 +191,7 @@
     <div class="wrap">
       <a href="index.html" class="logo" aria-label="Graphix Custom Apparel home"><img class="on-day" src="logo-day.svg" alt="Graphix Custom Apparel" /><img class="on-night" src="logo-night.svg" alt="Graphix Custom Apparel" /></a>
       <div class="top-links">
-        <a class="back" href="index.html">← Back to home</a>
+        <a class="back-home" href="index.html">← Back to home</a>
         <a class="btn btn-main request-link" href="index.html#quote">Request this package</a>
       </div>
     </div>
@@ -306,11 +305,34 @@ ITEMS.forEach((it, n) => {
   // spin: button flips, dragging turns it live; a short drag is enough to turn it around
   const viewer = sec.querySelector('.viewer'), flipper = sec.querySelector('.flipper');
   let angle = 0, startX = 0, startAngle = 0, dragging = false;
-  const setAngle = a => { angle = a; flipper.style.transform = `rotateY(${a}deg)`; };
-  it.resetSpin = () => setAngle(0);
+  // Shows only the side facing the viewer at every step, so no phone browser can hide both sides mid-spin
+  let anim = null;
+  const draw = a => {
+    angle = a;
+    flipper.style.transform = `rotateY(${a}deg)`;
+    const frontShows = Math.cos(a * Math.PI / 180) >= 0;
+    flipper.querySelectorAll('.face').forEach(face => {
+      const isBack = face.classList.contains('back');
+      face.style.visibility = (isBack ? !frontShows : frontShows) ? 'visible' : 'hidden';
+    });
+  };
+  const setAngle = (target, animate = true) => {
+    cancelAnimationFrame(anim);
+    if (!animate || matchMedia('(prefers-reduced-motion: reduce)').matches) return draw(target);
+    const from = angle, t0 = performance.now(), dur = 650;
+    const step = now => {
+      const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      draw(from + (target - from) * e);
+      if (k < 1) anim = requestAnimationFrame(step);
+    };
+    anim = requestAnimationFrame(step);
+  };
+  it.resetSpin = () => setAngle(0, false);
+  it.resetSpin();
   sec.querySelector('.spin-btn').addEventListener('click', () => { closePops(); setAngle(Math.round(angle / 180) * 180 + 180); });
   viewer.addEventListener('pointerdown', e => {
     if (e.target.closest('.spot')) return;
+    cancelAnimationFrame(anim);
     dragging = true; startX = e.clientX; startAngle = angle;
     viewer.classList.add('dragging'); viewer.setPointerCapture(e.pointerId);
   });
@@ -318,7 +340,7 @@ ITEMS.forEach((it, n) => {
     if (!dragging) return;
     const dx = e.clientX - startX;
     if (Math.abs(dx) > 4) closePops();
-    setAngle(startAngle + dx * 0.6);
+    draw(startAngle + dx * 0.6);
   });
   const end = () => {
     if (!dragging) return;
